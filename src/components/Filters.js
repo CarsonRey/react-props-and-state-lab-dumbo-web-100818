@@ -1,6 +1,18 @@
 import React from 'react'
 
 class Filters extends React.Component {
+
+  state = {
+
+  }
+
+  grabValue = (e) => {
+    let value = e.target.parentElement.previousElementSibling.firstElementChild.value
+    this.props.onChangeType(value)
+    this.props.onFindPetsClick(value)
+  }
+
+
   render() {
     return (
       <div className="ui form">
@@ -15,7 +27,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button">Find pets</button>
+          <button onClick={this.grabValue} className="ui secondary button">Find pets</button>
         </div>
       </div>
     )
